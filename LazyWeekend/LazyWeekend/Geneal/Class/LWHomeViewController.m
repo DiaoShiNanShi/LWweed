@@ -72,9 +72,6 @@ static int leftIndex = 0;
     [self setNavigationItemLeftAndRightButton];
     [self addSubViews];
     [self autoLayout];
-    
-    NSLog(@"123");
-    
 }
 
 - (void)viewDidLoad {
