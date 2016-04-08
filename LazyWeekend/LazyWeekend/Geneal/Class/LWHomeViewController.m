@@ -73,6 +73,8 @@ static int leftIndex = 0;
     [self addSubViews];
     [self autoLayout];
     
+    NSLog(@"123");
+    
 }
 
 - (void)viewDidLoad {
