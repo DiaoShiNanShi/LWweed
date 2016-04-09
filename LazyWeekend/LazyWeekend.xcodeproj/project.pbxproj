@@ -11,7 +11,6 @@
 		350B4D311CB6250C00DD861E /* LazyWeekendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D301CB6250C00DD861E /* LazyWeekendTests.m */; };
 		350B4D3C1CB6250C00DD861E /* LazyWeekendUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D3B1CB6250C00DD861E /* LazyWeekendUITests.m */; };
 		350B4D581CB6272300DD861E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D4B1CB6272300DD861E /* AppDelegate.m */; };
-		350B4D591CB6272300DD861E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350B4D511CB6272300DD861E /* Main.storyboard */; };
 		350B4D5C1CB628C300DD861E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350B4D5B1CB628C300DD861E /* Assets.xcassets */; };
 		350B4D601CB62A3500DD861E /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D5F1CB62A3500DD861E /* LWBaseViewController.m */; };
 		350B4D631CB62A8000DD861E /* LWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D621CB62A8000DD861E /* LWHomeViewController.m */; };
@@ -33,6 +32,9 @@
 		353CBE0B1CB7A809004897A1 /* NSString+WB_Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBE0A1CB7A809004897A1 /* NSString+WB_Expand.m */; };
 		353CBE0E1CB7A86B004897A1 /* LWHomeResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */; };
 		3562BF581CB8F23B000D2D41 /* LWBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */; };
+		35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */; };
+		35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */; };
+		35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */; };
 		D829C04620F94DE58D33F868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C97F4045DB2E6FE7496F988 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +69,6 @@
 		350B4D3D1CB6250C00DD861E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350B4D4A1CB6272300DD861E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		350B4D4B1CB6272300DD861E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		350B4D511CB6272300DD861E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		350B4D5B1CB628C300DD861E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350B4D5E1CB62A3500DD861E /* LWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseViewController.h; sourceTree = "<group>"; };
 		350B4D5F1CB62A3500DD861E /* LWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewController.m; sourceTree = "<group>"; };
@@ -113,6 +114,11 @@
 		353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeResponseModel.m; sourceTree = "<group>"; };
 		3562BF561CB8F23B000D2D41 /* LWBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseViewCell.h; sourceTree = "<group>"; };
 		3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewCell.m; sourceTree = "<group>"; };
+		35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		35C55CA61CB91B3700ACA4E0 /* LWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLoginViewController.h; sourceTree = "<group>"; };
+		35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLoginViewController.m; sourceTree = "<group>"; };
+		35C55CAA1CB91B5C00ACA4E0 /* LWApplySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWApplySettingsViewController.h; sourceTree = "<group>"; };
+		35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWApplySettingsViewController.m; sourceTree = "<group>"; };
 		BCA70700E33B159E8728D52F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,9 +268,11 @@
 		350B4D4F1CB6272300DD861E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				350B4D501CB6272300DD861E /* Main */,
 				350B4D671CB63D8200DD861E /* Menu */,
 				350B4D5D1CB62A0900DD861E /* Home */,
-				350B4D501CB6272300DD861E /* Main */,
+				35C55CA91CB91B4000ACA4E0 /* ApplySetting */,
+				35C55CA51CB91B2700ACA4E0 /* Login */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -272,7 +280,7 @@
 		350B4D501CB6272300DD861E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				350B4D511CB6272300DD861E /* Main.storyboard */,
+				35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -400,6 +408,24 @@
 			name = HomeTableViewCell;
 			sourceTree = "<group>";
 		};
+		35C55CA51CB91B2700ACA4E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				35C55CA61CB91B3700ACA4E0 /* LWLoginViewController.h */,
+				35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		35C55CA91CB91B4000ACA4E0 /* ApplySetting */ = {
+			isa = PBXGroup;
+			children = (
+				35C55CAA1CB91B5C00ACA4E0 /* LWApplySettingsViewController.h */,
+				35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */,
+			);
+			name = ApplySetting;
+			sourceTree = "<group>";
+		};
 		4F98805899F3A1A4BAE2B91E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,7 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				350B4D5C1CB628C300DD861E /* Assets.xcassets in Resources */,
-				350B4D591CB6272300DD861E /* Main.storyboard in Resources */,
+				35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,8 +637,10 @@
 				353CBDF61CB79091004897A1 /* LWBaseModel.m in Sources */,
 				353CBE0E1CB7A86B004897A1 /* LWHomeResponseModel.m in Sources */,
 				350B4D181CB6250C00DD861E /* main.m in Sources */,
+				35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */,
 				353CBDF81CB79091004897A1 /* LWBaseResponseModel.m in Sources */,
 				352317E11CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m in Sources */,
+				35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */,
 				350B4D661CB637D600DD861E /* UIColor+TBAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

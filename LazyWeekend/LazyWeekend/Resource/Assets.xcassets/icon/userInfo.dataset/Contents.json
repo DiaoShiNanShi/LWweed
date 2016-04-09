@@ -6,7 +6,7 @@
   "data" : [
     {
       "idiom" : "universal",
-      "filename" : "PkgInfo"
+      "filename" : "userInfo.plist"
     }
   ]
 }
