@@ -21,7 +21,16 @@
  homeTableViewIdentFiler
  */
 
-#define kGeneralIdentFiler       @"GeneralIdentFiler"
+#define kRecommendIdentFiler       @"RecommendIdentFiler"
 #define kFeaturedIdentFiler      @"FeaturedIdentFiler"
 
+
+
+
+/*
+ width  height
+ */
+
+#define kWidth                   @"width"
+#define kHeight                  @"height"
 #endif /* LWAPP_h */

@@ -29,6 +29,7 @@
 #import "UINavigationController+TBAddition.h"
 #import "UIView+TBAddition.h"
 #import "NSString+WB_Expand.h"
+#import "UIColor+TBAddition.h"
 
 
 /*
@@ -36,5 +37,5 @@
  */
 #import <Masonry/Masonry.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #endif /* PrefixHeader_pch */

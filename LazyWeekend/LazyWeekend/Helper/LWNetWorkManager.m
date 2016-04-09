@@ -165,10 +165,13 @@ static LWNetWorkManager *network;
             switch (dataType) {
                 case DataTypeHome:
                 {
-                    for (int i = 0; i < tmpArr.count; i ++) {
+                    
+                    
+                    for (NSDictionary *dic in tmpArr) {
                         
-                        LWHomeResponseModel *model = tmpArr[i];
-                        [modelArr addObject:model];
+                        LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];
+                        
+                        [modelArr addObject:responseModel];
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), ^{

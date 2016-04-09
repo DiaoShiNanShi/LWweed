@@ -18,8 +18,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:247 green:248 blue:248 alpha:1];
-    self.view.userInteractionEnabled = NO;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.view.userInteractionEnabled = NO;
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 

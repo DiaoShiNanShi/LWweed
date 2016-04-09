@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWHomeResponseModel.h"
+#import "LWBaseViewCell.h"
 
-@interface LWHomeTableViewCell : UITableViewCell
+@interface LWHomeRecommendViewCell : LWBaseViewCell
 
 
 @end
