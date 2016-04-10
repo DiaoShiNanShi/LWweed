@@ -71,7 +71,7 @@
     [super Valuation];
     self.titleLabel.text = self.model.title;
     
-    self._contenViewTitleLabel.text = [NSString stringWithFormat:@"8k . %@",self.model.category];
+    self._contenViewTitleLabel.text = [NSString stringWithFormat:@"%@ 8k . %@",self.model.poi,self.model.category];
     self._contenViewTimeLabel.text = self.model.time_info;
     self._contenViewCollectionTextLabel.text = self.model.collected_num;
     

@@ -142,6 +142,11 @@ static LWNetWorkManager *network;
             str = [[kHomeURL absoluteString] stringByAppendingString:[model description]];
             break;
         }
+        case DataTypeDetail:
+        {
+            str = [[kHomeDetailListURL absoluteString] stringByAppendingString:[model description]];
+        }
+            
         default:
             break;
     }
@@ -158,15 +163,28 @@ static LWNetWorkManager *network;
             {
                 completionHandler(nil,error);
             }
-            
-            
+                        
             NSArray *tmpArr = result[@"result"];
             NSMutableArray *modelArr = [NSMutableArray array];
             switch (dataType) {
-                case DataTypeHome:
+                case DataTypeHome :
                 {
                     
+                    for (NSDictionary *dic in tmpArr) {
+                        
+                        LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];
+                        
+                        [modelArr addObject:responseModel];
+                    }
                     
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        completionHandler(modelArr, error);
+                    });
+                    break;
+                }
+                case DataTypeDetail:
+                {
                     for (NSDictionary *dic in tmpArr) {
                         
                         LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];

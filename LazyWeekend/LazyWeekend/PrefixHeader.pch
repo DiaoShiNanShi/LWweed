@@ -38,4 +38,5 @@
 #import <Masonry/Masonry.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDCycleScrollView.h>
 #endif /* PrefixHeader_pch */

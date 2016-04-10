@@ -19,8 +19,12 @@
 #define KPOST                       @"POST"
 
 
-#define kHomeURL         [NSURL URLWithString:@"http://api.lanrenzhoumo.com/main/recommend/index/"]
-#define kDetailURL       [NSURL URLWithString:@"http://api.lanrenzhoumo.com/wh/common/leo_detail"]
+#define kHomeURL                    [NSURL URLWithString:@"http://api.lanrenzhoumo.com/main/recommend/index/"]
 
+// 推荐列表URL
+#define kHomeDetailListURL          [NSURL URLWithString:@"http://api.lanrenzhoumo.com/market/event/index/"]
+
+// 主页详细页面URL
+#define kDetailURL                  [NSURL URLWithString:@"http://api.lanrenzhoumo.com/wh/common/leo_detail"]
 
 #endif /* LWAPI_h */

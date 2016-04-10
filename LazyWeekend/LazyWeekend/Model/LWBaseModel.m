@@ -141,7 +141,7 @@
             continue;
         }
         
-        [string appendString:[NSString stringWithFormat:@"%@=%@&", [name isEqualToString:@"idstr"] ? @"id" : name, value]];
+        [string appendString:[NSString stringWithFormat:@"%@=%@&", [name isEqualToString:@"strid"] ? @"id" : name, value]];
     }
     
     return string;

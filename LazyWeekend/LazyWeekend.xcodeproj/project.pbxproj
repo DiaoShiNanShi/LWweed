@@ -17,6 +17,14 @@
 		350B4D661CB637D600DD861E /* UIColor+TBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D651CB637D600DD861E /* UIColor+TBAddition.m */; };
 		350B4D6A1CB63D9C00DD861E /* LWMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B4D691CB63D9C00DD861E /* LWMenuViewController.m */; };
 		352317E11CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 352317E01CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m */; };
+		35282D5C1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D5B1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m */; };
+		35282D6A1CB9D8250068F987 /* MJChiBaoZiFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D5F1CB9D8250068F987 /* MJChiBaoZiFooter.m */; };
+		35282D6B1CB9D8250068F987 /* MJChiBaoZiFooter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D611CB9D8250068F987 /* MJChiBaoZiFooter2.m */; };
+		35282D6C1CB9D8250068F987 /* MJChiBaoZiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D631CB9D8250068F987 /* MJChiBaoZiHeader.m */; };
+		35282D6D1CB9D8250068F987 /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D651CB9D8250068F987 /* MJDIYAutoFooter.m */; };
+		35282D6E1CB9D8250068F987 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D671CB9D8250068F987 /* MJDIYBackFooter.m */; };
+		35282D6F1CB9D8250068F987 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282D691CB9D8250068F987 /* MJDIYHeader.m */; };
+		35282DBF1CB9F3B50068F987 /* LWHomeDetailRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35282DBE1CB9F3B50068F987 /* LWHomeDetailRequestModel.m */; };
 		353CBDD91CB646AB004897A1 /* UINavigationController+TBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBDD81CB646AB004897A1 /* UINavigationController+TBAddition.m */; };
 		353CBDDF1CB648DE004897A1 /* LWPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBDDE1CB648DE004897A1 /* LWPushAnimation.m */; };
 		353CBDE21CB64AAA004897A1 /* UIView+TBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBDE11CB64AAA004897A1 /* UIView+TBAddition.m */; };
@@ -32,6 +40,9 @@
 		353CBE0B1CB7A809004897A1 /* NSString+WB_Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBE0A1CB7A809004897A1 /* NSString+WB_Expand.m */; };
 		353CBE0E1CB7A86B004897A1 /* LWHomeResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */; };
 		3562BF581CB8F23B000D2D41 /* LWBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */; };
+		35B23EF31CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */; };
+		35B23EF81CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */; };
+		35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */; };
 		35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */; };
 		35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */; };
 		35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */; };
@@ -82,6 +93,22 @@
 		350B4D6C1CB63F8800DD861E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		352317DF1CB80A20008354B9 /* LWHomeFeaturedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeFeaturedTableViewCell.h; sourceTree = "<group>"; };
 		352317E01CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeFeaturedTableViewCell.m; sourceTree = "<group>"; };
+		35282D5A1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailEnevtListViewController.h; sourceTree = "<group>"; };
+		35282D5B1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailEnevtListViewController.m; sourceTree = "<group>"; };
+		35282D5E1CB9D8250068F987 /* MJChiBaoZiFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiFooter.h; sourceTree = "<group>"; };
+		35282D5F1CB9D8250068F987 /* MJChiBaoZiFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiFooter.m; sourceTree = "<group>"; };
+		35282D601CB9D8250068F987 /* MJChiBaoZiFooter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiFooter2.h; sourceTree = "<group>"; };
+		35282D611CB9D8250068F987 /* MJChiBaoZiFooter2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiFooter2.m; sourceTree = "<group>"; };
+		35282D621CB9D8250068F987 /* MJChiBaoZiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiHeader.h; sourceTree = "<group>"; };
+		35282D631CB9D8250068F987 /* MJChiBaoZiHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiHeader.m; sourceTree = "<group>"; };
+		35282D641CB9D8250068F987 /* MJDIYAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYAutoFooter.h; sourceTree = "<group>"; };
+		35282D651CB9D8250068F987 /* MJDIYAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYAutoFooter.m; sourceTree = "<group>"; };
+		35282D661CB9D8250068F987 /* MJDIYBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYBackFooter.h; sourceTree = "<group>"; };
+		35282D671CB9D8250068F987 /* MJDIYBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYBackFooter.m; sourceTree = "<group>"; };
+		35282D681CB9D8250068F987 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
+		35282D691CB9D8250068F987 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
+		35282DBD1CB9F3B50068F987 /* LWHomeDetailRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailRequestModel.h; sourceTree = "<group>"; };
+		35282DBE1CB9F3B50068F987 /* LWHomeDetailRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailRequestModel.m; sourceTree = "<group>"; };
 		353CBDD71CB646AB004897A1 /* UINavigationController+TBAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+TBAddition.h"; sourceTree = "<group>"; };
 		353CBDD81CB646AB004897A1 /* UINavigationController+TBAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TBAddition.m"; sourceTree = "<group>"; };
 		353CBDDD1CB648DE004897A1 /* LWPushAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPushAnimation.h; sourceTree = "<group>"; };
@@ -114,6 +141,12 @@
 		353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeResponseModel.m; sourceTree = "<group>"; };
 		3562BF561CB8F23B000D2D41 /* LWBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseViewCell.h; sourceTree = "<group>"; };
 		3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewCell.m; sourceTree = "<group>"; };
+		35B23EF11CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailDataSourceRequestModel.h; sourceTree = "<group>"; };
+		35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailDataSourceRequestModel.m; sourceTree = "<group>"; };
+		35B23EF61CBA77D1003ED614 /* LWHomeDataSourceResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDataSourceResponseModel.h; sourceTree = "<group>"; };
+		35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDataSourceResponseModel.m; sourceTree = "<group>"; };
+		35B23EF91CBA8263003ED614 /* LWHomeDetailDataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailDataSourceViewController.h; sourceTree = "<group>"; };
+		35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailDataSourceViewController.m; sourceTree = "<group>"; };
 		35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		35C55CA61CB91B3700ACA4E0 /* LWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLoginViewController.h; sourceTree = "<group>"; };
 		35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLoginViewController.m; sourceTree = "<group>"; };
@@ -318,6 +351,7 @@
 		350B4D551CB6272300DD861E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				35282D5D1CB9D8030068F987 /* Reload&&Load */,
 				350B4D5B1CB628C300DD861E /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -337,6 +371,10 @@
 			children = (
 				350B4D611CB62A8000DD861E /* LWHomeViewController.h */,
 				350B4D621CB62A8000DD861E /* LWHomeViewController.m */,
+				35282D5A1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.h */,
+				35282D5B1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m */,
+				35B23EF91CBA8263003ED614 /* LWHomeDetailDataSourceViewController.h */,
+				35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -348,6 +386,25 @@
 				350B4D691CB63D9C00DD861E /* LWMenuViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		35282D5D1CB9D8030068F987 /* Reload&&Load */ = {
+			isa = PBXGroup;
+			children = (
+				35282D5E1CB9D8250068F987 /* MJChiBaoZiFooter.h */,
+				35282D5F1CB9D8250068F987 /* MJChiBaoZiFooter.m */,
+				35282D601CB9D8250068F987 /* MJChiBaoZiFooter2.h */,
+				35282D611CB9D8250068F987 /* MJChiBaoZiFooter2.m */,
+				35282D621CB9D8250068F987 /* MJChiBaoZiHeader.h */,
+				35282D631CB9D8250068F987 /* MJChiBaoZiHeader.m */,
+				35282D641CB9D8250068F987 /* MJDIYAutoFooter.h */,
+				35282D651CB9D8250068F987 /* MJDIYAutoFooter.m */,
+				35282D661CB9D8250068F987 /* MJDIYBackFooter.h */,
+				35282D671CB9D8250068F987 /* MJDIYBackFooter.m */,
+				35282D681CB9D8250068F987 /* MJDIYHeader.h */,
+				35282D691CB9D8250068F987 /* MJDIYHeader.m */,
+			);
+			name = "Reload&&Load";
 			sourceTree = "<group>";
 		};
 		353CBDE31CB6595D004897A1 /* MenuScrollView */ = {
@@ -387,10 +444,8 @@
 		353CBDFA1CB792AB004897A1 /* homeModel */ = {
 			isa = PBXGroup;
 			children = (
-				353CBDFB1CB792C8004897A1 /* LWHomeRequestModel.h */,
-				353CBDFC1CB792C8004897A1 /* LWHomeRequestModel.m */,
-				353CBE0C1CB7A86B004897A1 /* LWHomeResponseModel.h */,
-				353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */,
+				35B23EF51CBA7790003ED614 /* HomeResponseModel */,
+				35B23EF41CBA7750003ED614 /* HomeRequestModel */,
 			);
 			name = homeModel;
 			sourceTree = "<group>";
@@ -406,6 +461,30 @@
 				3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */,
 			);
 			name = HomeTableViewCell;
+			sourceTree = "<group>";
+		};
+		35B23EF41CBA7750003ED614 /* HomeRequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				353CBDFB1CB792C8004897A1 /* LWHomeRequestModel.h */,
+				353CBDFC1CB792C8004897A1 /* LWHomeRequestModel.m */,
+				35282DBD1CB9F3B50068F987 /* LWHomeDetailRequestModel.h */,
+				35282DBE1CB9F3B50068F987 /* LWHomeDetailRequestModel.m */,
+				35B23EF11CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.h */,
+				35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */,
+			);
+			name = HomeRequestModel;
+			sourceTree = "<group>";
+		};
+		35B23EF51CBA7790003ED614 /* HomeResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				353CBE0C1CB7A86B004897A1 /* LWHomeResponseModel.h */,
+				353CBE0D1CB7A86B004897A1 /* LWHomeResponseModel.m */,
+				35B23EF61CBA77D1003ED614 /* LWHomeDataSourceResponseModel.h */,
+				35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */,
+			);
+			name = HomeResponseModel;
 			sourceTree = "<group>";
 		};
 		35C55CA51CB91B2700ACA4E0 /* Login */ = {
@@ -618,11 +697,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35282D6F1CB9D8250068F987 /* MJDIYHeader.m in Sources */,
+				35282D6A1CB9D8250068F987 /* MJChiBaoZiFooter.m in Sources */,
 				3562BF581CB8F23B000D2D41 /* LWBaseViewCell.m in Sources */,
+				35282D6C1CB9D8250068F987 /* MJChiBaoZiHeader.m in Sources */,
+				35282D6D1CB9D8250068F987 /* MJDIYAutoFooter.m in Sources */,
 				350B4D631CB62A8000DD861E /* LWHomeViewController.m in Sources */,
 				353CBDED1CB75A91004897A1 /* LWCustomButton.m in Sources */,
 				350B4D581CB6272300DD861E /* AppDelegate.m in Sources */,
+				35282D6E1CB9D8250068F987 /* MJDIYBackFooter.m in Sources */,
+				35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */,
 				353CBDDF1CB648DE004897A1 /* LWPushAnimation.m in Sources */,
+				35282D6B1CB9D8250068F987 /* MJChiBaoZiFooter2.m in Sources */,
+				35282DBF1CB9F3B50068F987 /* LWHomeDetailRequestModel.m in Sources */,
 				353CBDE91CB6A88D004897A1 /* LWContenScrollView.m in Sources */,
 				353CBE081CB7A3EF004897A1 /* LWHomeRecommendViewCell.m in Sources */,
 				353CBE0B1CB7A809004897A1 /* NSString+WB_Expand.m in Sources */,
@@ -631,8 +718,10 @@
 				353CBDE61CB6598D004897A1 /* LWMenuScrollVlew.m in Sources */,
 				353CBDF71CB79091004897A1 /* LWBaseRequestModel.m in Sources */,
 				353CBE001CB7941C004897A1 /* LWNetWorkManager.m in Sources */,
+				35282D5C1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m in Sources */,
 				353CBDD91CB646AB004897A1 /* UINavigationController+TBAddition.m in Sources */,
 				350B4D6A1CB63D9C00DD861E /* LWMenuViewController.m in Sources */,
+				35B23EF81CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m in Sources */,
 				350B4D601CB62A3500DD861E /* LWBaseViewController.m in Sources */,
 				353CBDF61CB79091004897A1 /* LWBaseModel.m in Sources */,
 				353CBE0E1CB7A86B004897A1 /* LWHomeResponseModel.m in Sources */,
@@ -640,6 +729,7 @@
 				35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */,
 				353CBDF81CB79091004897A1 /* LWBaseResponseModel.m in Sources */,
 				352317E11CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m in Sources */,
+				35B23EF31CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m in Sources */,
 				35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */,
 				350B4D661CB637D600DD861E /* UIColor+TBAddition.m in Sources */,
 			);

@@ -14,7 +14,7 @@
 #define kScreenHeight           CGRectGetHeight([UIScreen mainScreen].bounds)
 
 
-#define kMenuIdentifier             @"LWMenuViewController"
-
+#define kMenuIdentifier                     @"LWMenuViewController"
+#define kLWHomeDetailViewController         @"LWHomeDetailViewController"
 
 #endif /* LWSBControllerIdentifler_h */

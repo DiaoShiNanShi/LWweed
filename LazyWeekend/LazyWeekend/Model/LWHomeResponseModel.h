@@ -56,7 +56,11 @@
 
 
 /**
- *  详细页面ID
+ *  推荐  详细页面ID
+ */
+@property (nonatomic, copy) NSNumber *jump_data;
+/**
+ *  普通  详细页面ID
  */
 @property (nonatomic, copy) NSNumber *leo_id;
 
@@ -64,6 +68,11 @@
  * 本条信息的类型 event 为推荐   leo 为普通类型
  */
 @property (nonatomic, copy) NSString *item_type;
+
+/**
+ *  包括推荐的详细页面
+ */
+@property (nonatomic, copy) NSString *poi;
 // ----------------------*   计算字体宽 高   *---------------//
 
 @property (nonatomic, assign) CGFloat cellHeight;

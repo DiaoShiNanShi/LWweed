@@ -14,7 +14,7 @@
 #import "LWHomeResponseModel.h"
 #import "LWHomeFeaturedTableViewCell.h"
 #import "LWBaseViewCell.h"
-
+#import "LWHomeDetailEnevtListViewController.h"
 #import "LWHomeRecommendViewCell.h"
 #import "LWHomeFeaturedTableViewCell.h"
 #import "LWHomeResponseModel.h"
@@ -24,6 +24,8 @@
 
 
 #import "LWMenuViewController.h"
+#import "MJRefresh.h"
+#import "MJChiBaoZiFooter.h"
 
 
 static int leftIndex = 0;
@@ -80,6 +82,8 @@ static int leftIndex = 0;
 
 @end
 
+
+static int ReloadPage = 1;
 @implementation LWHomeViewController
 
 
@@ -91,7 +95,7 @@ static int leftIndex = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self downLoadDataArray];
     [self.tableView registerClass:[LWHomeRecommendViewCell class] forCellReuseIdentifier:kRecommendIdentFiler];
     [self.tableView registerClass:[LWHomeFeaturedTableViewCell class] forCellReuseIdentifier:kFeaturedIdentFiler];
@@ -99,6 +103,32 @@ static int leftIndex = 0;
     [self setNavigationItemLeftAndRightButton];
     [self addSubViews];
     [self autoLayout];
+    
+    
+}
+
+- (void)example01
+{
+    __unsafe_unretained __typeof(self) weakSelf = self;
+    
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf downLoadDataArray];
+    }];
+    
+    // 马上进入刷新状态
+    [self.tableView.mj_header beginRefreshing];
+}
+- (void)example11
+{
+    [self example01];
+    
+    __unsafe_unretained __typeof(self) weakSelf = self;
+    
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf downLoadDataArray];
+    }];
 }
 
 
@@ -107,27 +137,14 @@ static int leftIndex = 0;
 {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
        
-        for (int i = 1; i <= 23; i ++) {
-            
+       
             LWHomeRequestModel *requestModel = [[LWHomeRequestModel alloc] init];
             requestModel.city_id = @324;
-            requestModel.lat = @3054869;
-            requestModel.lon = @104.0637;
-            requestModel.page = @(i);
-            requestModel.session_id = @"000042fad9cf03470b62485c38db159638d6ad";
+            requestModel.lat = @0;
+            requestModel.lon = @0;
+            requestModel.page = @(ReloadPage);
+            requestModel.session_id = kSession_id;
             requestModel.v = @3;
-            if(i == 1)
-            {
-                requestModel.city_id = 0;
-                requestModel.lat = @30.54871;
-                requestModel.lon = @104.0634;
-            }
-            
-            if(i == 2)
-            {
-                requestModel.lat = @30.54871;
-                requestModel.lon = @104.0634;
-            }
             
             [[LWNetWorkManager sharNetWorkManager] networkRequestsWithModel:requestModel withDataType:DataTypeHome withCompletionHandler:^(id result, NSError *error) {
                 
@@ -138,13 +155,15 @@ static int leftIndex = 0;
                 
                 [self.dataArray addObjectsFromArray:result];
                 
+                
                 // 回到主线程刷新数据
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
                 });
                 
             } withRequestWay:kGET];
-        }
+        
+        ReloadPage ++;
         
     });
 }
@@ -238,12 +257,31 @@ static int leftIndex = 0;
     {
         return 282;
     }
+    
 }
-
 
 // 点击事件进入详细页面
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    LWHomeResponseModel *model = self.dataArray[indexPath.row];
+    
+    if([model.item_type isEqualToString:@"leo"])
+    {
+        // 普通
+        NSLog(@"-- 普通页面 %@",model.leo_id);
+        
+        
+    }else
+    {
+        NSLog(@"-- 推荐页面 %@",model.jump_data);
+        
+        // 推荐
+        LWHomeDetailEnevtListViewController *detailController = [self.storyboard instantiateViewControllerWithIdentifier:kLWHomeDetailViewController];
+        detailController.model = model;
+        
+        [self.navigationController pushViewController:detailController pushType:UINavigationControllerPushTypeFromLeft animated:YES];
+    }
     
 }
 
@@ -335,4 +373,5 @@ static int leftIndex = 0;
     }
     return _tableView;
 }
+
 @end

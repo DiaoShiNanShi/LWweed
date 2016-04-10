@@ -23,9 +23,10 @@
 
 #define kRecommendIdentFiler       @"RecommendIdentFiler"
 #define kFeaturedIdentFiler      @"FeaturedIdentFiler"
+#define KRecommendDetailIdentFiler  @"RecommendDetailIdentFiler"
 
 
-
+#define kSession_id                 @"000042fad9cf03470b62485c38db159638d6ad"
 
 /*
  width  height
