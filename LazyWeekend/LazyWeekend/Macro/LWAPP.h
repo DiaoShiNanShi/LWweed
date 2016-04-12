@@ -26,6 +26,9 @@
 #define KRecommendDetailIdentFiler  @"RecommendDetailIdentFiler"
 
 
+#define kLWHomeDataSourcePictureTableViewCell  @"LWHomeDataSourcePictureTableViewCell.h"
+#define kLWHomeDataSourceTextTableViewCell     @"LWHomeDataSourceTextTableViewCell"
+
 #define kSession_id                 @"000042fad9cf03470b62485c38db159638d6ad"
 
 /*

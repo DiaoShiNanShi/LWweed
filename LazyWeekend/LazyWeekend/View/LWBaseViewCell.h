@@ -26,5 +26,7 @@
 
 // 自动布局
 - (void) autoLayout;
+// 字体根据多少自动设置宽度
+- (void) _sizeToFit;
 
 @end

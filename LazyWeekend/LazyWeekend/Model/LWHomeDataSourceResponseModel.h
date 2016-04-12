@@ -33,7 +33,7 @@
 /**
  *  单价
  */
-@property (nonatomic, copy) NSNumber *price_info;
+@property (nonatomic, copy) NSString *price_info;
 
 /**
  *  活动时间
@@ -78,4 +78,8 @@
 // ---------------- ** 高度计算 ** ---------//
 
 @property (nonatomic, assign) CGFloat titleHeight;
+
+
+@property (nonatomic, assign) CGFloat dataTextHeight;
+@property (nonatomic, assign) CGFloat dataPictureHeight;
 @end

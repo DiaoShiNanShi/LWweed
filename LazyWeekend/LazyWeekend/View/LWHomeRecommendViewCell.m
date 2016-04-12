@@ -29,10 +29,6 @@
 @property (nonatomic, strong) UILabel     *_contenViewPriceTextLabel;
 
 
-
-// 字体根据多少自动设置宽度
-- (void) _sizeToFit;
-
 @end
 
 @implementation LWHomeRecommendViewCell
@@ -75,7 +71,7 @@
     self._contenViewTimeLabel.text = self.model.time_info;
     self._contenViewCollectionTextLabel.text = self.model.collected_num;
     
-    self._contenViewPriceTextLabel.text = self.model.price;
+    self._contenViewPriceTextLabel.text = [NSString stringWithFormat:@"%@",self.model.price];
     
 }
 
@@ -159,11 +155,13 @@
         make.edges.equalTo(self._contenViewPrice);
     }];
     
+    
 }
 
 // 自动改变大小
 - (void)_sizeToFit
 {
+    [super _sizeToFit];
     [self._contenViewTimeLabel sizeToFit];
     [self._contenViewCollectionTextLabel sizeToFit];
     [self._contenViewPriceTextLabel sizeToFit];
@@ -185,7 +183,7 @@
     if(!_titleLabel)
     {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:15];
+        _titleLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:15];
         _titleLabel.numberOfLines = 0;
         _titleLabel.textColor = [UIColor colorWithR:58 g:62 b:72 alpha:1];
     }
@@ -206,7 +204,7 @@
     if(!__contenViewTitleLabel)
     {
         __contenViewTitleLabel = [[UILabel alloc] init];
-        __contenViewTitleLabel.font = [UIFont systemFontOfSize:12];
+        __contenViewTitleLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:12];
         __contenViewTitleLabel.textColor = [UIColor colorWithR:138 g:143 b:153 alpha:1];
     }
     return __contenViewTitleLabel;
@@ -229,9 +227,9 @@
     if(!__contenViewTimeLabel)
     {
         __contenViewTimeLabel = [[UILabel alloc] init];
-        __contenViewTimeLabel.font = [UIFont systemFontOfSize:12];
+        __contenViewTimeLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:12];
         __contenViewTimeLabel.textAlignment = NSTextAlignmentCenter;
-        __contenViewTimeLabel.textColor =[UIColor colorWithR:214 g:214 b:214 alpha:1];
+        __contenViewTimeLabel.textColor = [UIColor colorWithR:135 g:141 b:149 alpha:1];
     }
     return __contenViewTimeLabel;
 }
@@ -260,9 +258,9 @@
     if(!__contenViewCollectionTextLabel)
     {
         __contenViewCollectionTextLabel = [[UILabel alloc] init];
-        __contenViewCollectionTextLabel.font = [UIFont systemFontOfSize:12];
+        __contenViewCollectionTextLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:12];
         __contenViewCollectionTextLabel.textAlignment = NSTextAlignmentCenter;
-        __contenViewCollectionTextLabel.textColor = [UIColor colorWithR:214 g:214 b:214 alpha:1];
+        __contenViewCollectionTextLabel.textColor = [UIColor colorWithR:135 g:141 b:149 alpha:1];
     }
     return __contenViewCollectionTextLabel;
 }
@@ -280,12 +278,12 @@
 - (UILabel *)_contenViewPriceTextLabel{
     if(!__contenViewPriceTextLabel)
     {
+        __contenViewPriceTextLabel = [[UILabel alloc] init];
         __contenViewPriceTextLabel.textAlignment = NSTextAlignmentCenter;
-        __contenViewPriceTextLabel.font = [UIFont systemFontOfSize:10];
-        __contenViewPriceTextLabel.textColor = [UIColor colorWithR:214 g:214 b:214 alpha:1];
+        __contenViewPriceTextLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:12];
+        __contenViewPriceTextLabel.textColor = [UIColor colorWithR:135 g:141 b:149 alpha:1];
     }
     return __contenViewPriceTextLabel;
 }
-
 
 @end

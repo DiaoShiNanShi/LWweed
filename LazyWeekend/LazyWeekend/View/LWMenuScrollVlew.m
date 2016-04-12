@@ -24,9 +24,7 @@
 - (void) autoLayout;
 
 
-- (void) eventMethodHomeOnCilcked:(UIButton *)sender;
-- (void) eventMethodAppSttingOnCilcked:(UIButton *)sender;
-- (void) eventMethodAboutXBOnCilcked:(UIButton *)sender;
+- (void) eventMethodOnCilcked:(UIButton *)sender;
 @end
 
 @implementation LWMenuScrollVlew
@@ -41,26 +39,6 @@
 
 - (void)autoLayout
 {
-//    [self.homeButton mas_updateConstraints:^(MASConstraintMaker *make) {
-//       
-//        make.left.equalTo(self).offset(20);
-//        make.top.equalTo(self).offset(40);
-//        make.height.equalTo(@40);
-//        make.right.equalTo(self);
-//    }];
-//    
-//    [self.applySetting mas_updateConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.left.right.height.equalTo(self.homeButton);
-//        make.top.equalTo(self.homeButton.mas_bottom).offset(10);
-//    }];
-//    
-//    [self.aboutXB mas_updateConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.left.right.height.equalTo(self.applySetting);
-//        make.top.equalTo(self.applySetting.mas_bottom).offset(10);
-//    }];
-    
 }
 
 
@@ -83,7 +61,8 @@
     if(!_homeButton)
     {
         _homeButton = [LWCustomButton createCustomButton:@"首页" withFram:CGRectMake(20, 40, 300, 40)];
-        [_homeButton addTarget:self action:@selector(eventMethodHomeOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        [_homeButton addTarget:self action:@selector(eventMethodOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        _homeButton.tag = 1;
         
     }
     return _homeButton;
@@ -94,7 +73,8 @@
     if(!_applySetting)
     {
         _applySetting = [LWCustomButton createCustomButton:@"应用设置" withFram:CGRectMake(20, 90, 300, 40)];
-        [_applySetting addTarget:self action:@selector(eventMethodAppSttingOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        [_applySetting addTarget:self action:@selector(eventMethodOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        _applySetting.tag = 2;
     }
     return _applySetting;
 }
@@ -103,24 +83,43 @@
 {
     if(!_aboutXB)
     {
-        _aboutXB = [LWCustomButton createCustomButton:@"关于XB" withFram:CGRectMake(20, 140, 300, 40)];
-        [_applySetting addTarget:self action:@selector(eventMethodAboutXBOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        _aboutXB = [LWCustomButton createCustomButton:@"登录" withFram:CGRectMake(20, 140, 300, 40)];
+        [_aboutXB addTarget:self action:@selector(eventMethodOnCilcked:) forControlEvents:UIControlEventTouchUpInside];
+        _aboutXB.tag = 3;
+        
     }
     return _aboutXB;
 }
 
 #pragma mark eventMethod
-- (void) eventMethodHomeOnCilcked:(UIButton *)sender
+- (void) eventMethodOnCilcked:(UIButton *)sender
 {
-    NSLog(@"点击了-- %@",((LWCustomButton *)sender).textlable.text);
-}
-- (void) eventMethodAppSttingOnCilcked:(UIButton *)sender
-{
-    NSLog(@"点击了-- %@",((LWCustomButton *)sender).textlable.text);
-}
-- (void) eventMethodAboutXBOnCilcked:(UIButton *)sender
-{
-    NSLog(@"点击了-- %@",((LWCustomButton *)sender).textlable.text);
+    LWCustomButton *tmpButtton = (LWCustomButton *)sender;
+    tmpButtton.textlable.textColor = [UIColor whiteColor];
+    
+    switch (tmpButtton.tag) {
+        case 1:
+        {
+            self.applySetting.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            self.aboutXB.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            break;
+        }
+        case 2:
+        {
+            self.homeButton.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            self.aboutXB.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            break;
+        }
+        default:
+        {
+            self.homeButton.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            self.applySetting.textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
+            break;
+        }
+    }
+    
+    
+    NSLog(@"点击了-- %@",tmpButtton.textlable.text);
 }
 
 @end

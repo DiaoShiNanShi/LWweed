@@ -10,7 +10,7 @@
 #import "LWNetWorkManager.h"
 #import "LWHomeDetailRequestModel.h"
 #import "LWHomeResponseModel.h"
-
+#import "LWHomeEventNavigationView.h"
 
 #import "LWHomeRecommendViewCell.h"
 
@@ -21,6 +21,7 @@
 // 请求的数据
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) LWHomeEventNavigationView *eventNavigationView;
 /**
  *  加载数据
  */
@@ -35,6 +36,11 @@
  *  自动布局
  */
 - (void) autoLayout;
+
+/**
+ *  返回上一层
+ */
+- (void) popBack;
 @end
 
 @implementation LWHomeDetailEnevtListViewController
@@ -57,15 +63,27 @@
 - (void)addSubviews
 {
     [self.view addSubview:self.tableview];
+    [self.view addSubview:self.eventNavigationView];
 }
 - (void)autoLayout
 {
+    [self.eventNavigationView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@20);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
+    
     [self.tableview mas_updateConstraints:^(MASConstraintMaker *make) {
        
         make.edges.equalTo(self.view);
         
     }];
 }
+- (void)popBack
+{
+   [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -2)] animated:YES];
+}
+
 
 - (void)loadDataArray
 {
@@ -132,6 +150,18 @@
         _tableview.dataSource = self;
     }
     return _tableview;
+}
+- (LWHomeEventNavigationView *)eventNavigationView
+{
+    if(!_eventNavigationView)
+    {
+        _eventNavigationView = [[LWHomeEventNavigationView alloc] init];
+        _eventNavigationView.backgroundColor = [UIColor colorWithR:247 g:247 b:247 alpha:0.9];
+        _eventNavigationView.centerLabelTitle.text = self.model.title;
+        
+        [_eventNavigationView.leftButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _eventNavigationView;
 }
 
 @end

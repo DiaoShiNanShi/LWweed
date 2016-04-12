@@ -9,6 +9,8 @@
 #import "LWNetWorkManager.h"
 #import "LWHomeResponseModel.h"
 #import "LWHomeResponseModel.h"
+#import "LWHomeDetailDataSourceRequestModel.h"
+#import "LWHomeDataSourceResponseModel.h"
 
 
 
@@ -145,6 +147,12 @@ static LWNetWorkManager *network;
         case DataTypeDetail:
         {
             str = [[kHomeDetailListURL absoluteString] stringByAppendingString:[model description]];
+            break;
+        }
+        case DataTypeDataSource:
+        {
+            str = [[kHomeDataSourceURL absoluteString] stringByAppendingString:[model description]];
+            break;
         }
             
         default:
@@ -163,14 +171,13 @@ static LWNetWorkManager *network;
             {
                 completionHandler(nil,error);
             }
-                        
-            NSArray *tmpArr = result[@"result"];
+            
             NSMutableArray *modelArr = [NSMutableArray array];
             switch (dataType) {
                 case DataTypeHome :
                 {
                     
-                    for (NSDictionary *dic in tmpArr) {
+                    for (NSDictionary *dic in result[@"result"]) {
                         
                         LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];
                         
@@ -185,7 +192,7 @@ static LWNetWorkManager *network;
                 }
                 case DataTypeDetail:
                 {
-                    for (NSDictionary *dic in tmpArr) {
+                    for (NSDictionary *dic in result[@"result"]) {
                         
                         LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];
                         
@@ -196,6 +203,14 @@ static LWNetWorkManager *network;
                         
                         completionHandler(modelArr, error);
                     });
+                    break;
+                }
+                case DataTypeDataSource:
+                {
+                    // 数据
+                    LWHomeDataSourceResponseModel *dataSourceModel = [[LWHomeDataSourceResponseModel alloc] initWithObject:result[@"result"]];
+                    
+                    completionHandler(dataSourceModel,error);
                     break;
                 }
                     

@@ -89,7 +89,7 @@
     {
         _labeltext = [[UILabel alloc] init];
         _labeltext.textColor = [UIColor colorWithR:166 g:170 b:177 alpha:1];
-        _labeltext.font = [UIFont systemFontOfSize:12];
+        _labeltext.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:12];
         _labeltext.textAlignment = NSTextAlignmentCenter;
     }
     return _labeltext;
@@ -100,7 +100,7 @@
     if(!_labelTitle)
     {
         _labelTitle = [[UILabel alloc] init];
-        _labelTitle.font = [UIFont systemFontOfSize:15];
+        _labelTitle.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:15];
         _labelTitle.textColor = [UIColor colorWithR:62 g:66 b:76 alpha:1];
     }
     return _labelTitle;

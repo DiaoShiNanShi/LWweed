@@ -20,7 +20,7 @@
         self.collected_num = [NSString stringWithFormat:@"%@人收藏",value];
     }else if([key isEqualToString:@"price"])
     {
-        self.price = [NSString stringWithFormat:@"$%@",value];
+        self.price = [NSString stringWithFormat:@"¥ %@",value];
     }else if ([[self propertyList] containsObject:key]) {
         [super setValue:value forKey:key];
     }

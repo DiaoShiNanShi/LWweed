@@ -18,6 +18,12 @@
 #import "LWHomeRecommendViewCell.h"
 #import "LWHomeFeaturedTableViewCell.h"
 #import "LWHomeResponseModel.h"
+#import "LWHomeDetailDataSourceRequestModel.h"
+#import "LWHomeDetailDataSourceViewController.h"
+
+
+#import "LWBaseNavigationView.h"
+#import "LWHomeNavigationView.h"
 
 #import "UIColor+TBAddition.h"
 #import "UINavigationController+TBAddition.h"
@@ -34,6 +40,10 @@ static int leftIndex = 0;
 @interface LWHomeViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 
+// NavationBar
+@property (nonatomic, strong) LWHomeNavigationView *navigationView;
+
+
 // 菜单ScrollView
 @property (nonatomic, strong) LWMenuScrollVlew *UIMenuScrollView;
 @property (nonatomic, strong) LWContenScrollView *contenScrollView;
@@ -45,10 +55,6 @@ static int leftIndex = 0;
 // 主页数据
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
-/**
- *  设置Navigation左右 按钮
- */
-- (void) setNavigationItemLeftAndRightButton;
 
 /**
  *  左边按钮点击事件
@@ -83,7 +89,6 @@ static int leftIndex = 0;
 @end
 
 
-static int ReloadPage = 1;
 @implementation LWHomeViewController
 
 
@@ -95,40 +100,16 @@ static int ReloadPage = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     [self downLoadDataArray];
     [self.tableView registerClass:[LWHomeRecommendViewCell class] forCellReuseIdentifier:kRecommendIdentFiler];
     [self.tableView registerClass:[LWHomeFeaturedTableViewCell class] forCellReuseIdentifier:kFeaturedIdentFiler];
     
-    [self setNavigationItemLeftAndRightButton];
     [self addSubViews];
     [self autoLayout];
     
-    
-}
-
-- (void)example01
-{
-    __unsafe_unretained __typeof(self) weakSelf = self;
-    
-    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf downLoadDataArray];
-    }];
-    
-    // 马上进入刷新状态
-    [self.tableView.mj_header beginRefreshing];
-}
-- (void)example11
-{
-    [self example01];
-    
-    __unsafe_unretained __typeof(self) weakSelf = self;
-    
-    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf downLoadDataArray];
-    }];
 }
 
 
@@ -142,7 +123,7 @@ static int ReloadPage = 1;
             requestModel.city_id = @324;
             requestModel.lat = @0;
             requestModel.lon = @0;
-            requestModel.page = @(ReloadPage);
+            requestModel.page = @(0);
             requestModel.session_id = kSession_id;
             requestModel.v = @3;
             
@@ -162,26 +143,11 @@ static int ReloadPage = 1;
                 });
                 
             } withRequestWay:kGET];
-        
-        ReloadPage ++;
-        
     });
 }
 
 
 #pragma mark - Pravite
-- (void)setNavigationItemLeftAndRightButton
-{
-    UIImage *leftBacImage = [UIImage imageNamed:@"cat_me"];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[leftBacImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(customleftBarButtonItemOnClick)];
-    
-    UIImage *rightBacImage = [UIImage imageNamed:@"ic_nav_search"];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[rightBacImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(customRightBarButtonItemOnClick)];
-    
-    self.navigationItem.rightBarButtonItem = rightItem;
-    self.navigationItem.leftBarButtonItem = leftItem;
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithR:246 g:247 b:247 alpha:1];
-}
 
 - (void)customleftBarButtonItemOnClick
 {
@@ -198,6 +164,7 @@ static int ReloadPage = 1;
 // 打开菜单
 - (void)openOrCloseMenu
 {
+    
     [self.contenScrollView layoutIfNeeded];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         
@@ -205,13 +172,23 @@ static int ReloadPage = 1;
            
             if(leftIndex % 2 == 0)
             {
+                
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                self.contenScrollView.userInteractionEnabled = NO;
                 make.bottom.equalTo(self.view).offset(464);
-                self.navigationController.navigationBar.top = 488;
+                self.UIMenuScrollView.alpha = 1;
+                [self.navigationView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(@468);
+                }];
                 
             }else
             {
+                self.contenScrollView.userInteractionEnabled = YES;
                 make.bottom.equalTo(self.view);
-                self.navigationController.navigationBar.top = 20;
+                // self.UIMenuScrollView.alpha = 0;
+                [self.navigationView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(@20);
+                }];
             }
             
         }];
@@ -257,7 +234,6 @@ static int ReloadPage = 1;
     {
         return 282;
     }
-    
 }
 
 // 点击事件进入详细页面
@@ -271,6 +247,31 @@ static int ReloadPage = 1;
         // 普通
         NSLog(@"-- 普通页面 %@",model.leo_id);
         
+        LWHomeDetailDataSourceViewController *detailController = [[LWHomeDetailDataSourceViewController alloc] init];
+        
+        LWHomeDetailDataSourceRequestModel *requestModel = [[LWHomeDetailDataSourceRequestModel alloc] init
+                                                            ];
+        requestModel.leo_id = model.leo_id;
+        requestModel.session_id = kSession_id;
+        requestModel.v = @4;
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+           
+            [[LWNetWorkManager sharNetWorkManager] networkRequestsWithModel:requestModel withDataType:DataTypeDataSource withCompletionHandler:^(id result, NSError *error) {
+                
+                if(error)
+                {
+                    return ;
+                }
+                detailController.model = result;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.navigationController pushViewController:detailController animated:YES];
+                });
+                
+            } withRequestWay:kGET];
+        });
         
     }else
     {
@@ -280,7 +281,7 @@ static int ReloadPage = 1;
         LWHomeDetailEnevtListViewController *detailController = [self.storyboard instantiateViewControllerWithIdentifier:kLWHomeDetailViewController];
         detailController.model = model;
         
-        [self.navigationController pushViewController:detailController pushType:UINavigationControllerPushTypeFromLeft animated:YES];
+        [self.navigationController pushViewController:detailController pushType:UINavigationControllerPushTypeFromRight animated:YES];
     }
     
 }
@@ -292,16 +293,27 @@ static int ReloadPage = 1;
 {
     [self.view addSubview:self.contenScrollView];
     [self.view addSubview:self.UIMenuScrollView];
+    [self.view addSubview:self.navigationView];
     [self.contenScrollView addSubview:self.tableView];
     
 }
 - (void)autoLayout
 {
     
+    // 布局Navgtion
+    [self.navigationView mas_updateConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(@20);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
+    
+    
     [self.contenScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
         
-        make.width.bottom.left.equalTo(self.view);
-        make.height.equalTo(@504);
+        make.top.equalTo(self.UIMenuScrollView.mas_bottom);
+        make.right.left.equalTo(self.view);
+        make.height.equalTo(@568);
     }];
     
     
@@ -316,7 +328,7 @@ static int ReloadPage = 1;
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
        
         make.width.equalTo(self.view);
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.navigationView);
         make.bottom.equalTo(self.view);
         
     }];
@@ -334,6 +346,7 @@ static int ReloadPage = 1;
     {
         _UIMenuScrollView = [[LWMenuScrollVlew alloc] init];
         _UIMenuScrollView.backgroundColor = [UIColor blackColor];
+        _UIMenuScrollView.alpha = 0;
         _UIMenuScrollView.bounces = YES;
         _UIMenuScrollView.scrollEnabled = YES;
         
@@ -346,7 +359,7 @@ static int ReloadPage = 1;
     if(!_contenScrollView)
     {
         _contenScrollView = [LWContenScrollView createLWContenScrollView];
-        _contenScrollView.backgroundColor = [UIColor blueColor];
+        _contenScrollView.backgroundColor = [UIColor colorWithR:245 g:245 b:245 alpha:1];
         _contenScrollView.bounces = YES;
         _contenScrollView.scrollEnabled = YES;
     }
@@ -366,6 +379,7 @@ static int ReloadPage = 1;
     if(!_tableView)
     {
         _tableView = [[UITableView alloc] init];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
@@ -374,4 +388,14 @@ static int ReloadPage = 1;
     return _tableView;
 }
 
+- (LWHomeNavigationView *)navigationView
+{
+    if(!_navigationView)
+    {
+        _navigationView = [[LWHomeNavigationView alloc] init];
+        _navigationView.backgroundColor = [UIColor colorWithR:245 g:245 b:245 alpha:0.8];
+        [_navigationView.leftButton addTarget:self action:@selector(openOrCloseMenu) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _navigationView;
+}
 @end

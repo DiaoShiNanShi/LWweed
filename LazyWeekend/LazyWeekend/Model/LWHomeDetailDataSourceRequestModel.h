@@ -13,6 +13,6 @@
 
 @property (nonatomic, copy) NSNumber *leo_id;
 @property (nonatomic, copy) NSString *session_id;
-@property (nonatomic, copy) NSString *v;
+@property (nonatomic, copy) NSNumber *v;
 
 @end

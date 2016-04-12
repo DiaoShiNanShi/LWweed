@@ -18,8 +18,14 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:247 green:248 blue:248 alpha:1];
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
 //    self.view.userInteractionEnabled = NO;
     //self.automaticallyAdjustsScrollViewInsets = NO;
+    //FZLTXHK--GBK1-0
+    
+    
+    
     
 }
 

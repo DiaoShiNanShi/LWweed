@@ -30,6 +30,7 @@
     {
         if([[self propertyList] containsObject:key])
         {
+        
             [super setValue:value forKey:key];
         }
     }
@@ -44,6 +45,36 @@
     _titleHeight = ceil([self.title calcTextSizeWith:[UIFont systemFontOfSize:18] totalSize:totalSize].height);
     
     return _titleHeight;
+}
+
+- (CGFloat)dataTextHeight
+{
+    if(_dataTextHeight == 0)
+    {
+        for (NSDictionary *item in self.descriptionArray) {
+            
+            if([item[@"type"] isEqualToString:@"text"])
+            {
+                CGSize totalSize = CGSizeMake(kScreenWidth-15*2, 1000);
+                CGFloat textheight;
+                NSArray *tmpArr = [item[@"content"] componentsSeparatedByString:@"\r\n"];
+                
+                for (NSString *item in tmpArr) {
+                    
+                    textheight += ceil([item calcTextSizeWith:[UIFont fontWithName:@"FZLTXHK--GBK1-0" size:13] totalSize:totalSize].height);
+                    
+                }
+                _dataTextHeight = textheight;
+                
+            }else
+            {
+                _dataPictureHeight += 200;
+            }
+            
+        }
+        
+    }
+    return _dataTextHeight;
 }
 
 @end

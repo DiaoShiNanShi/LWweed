@@ -18,7 +18,10 @@ typedef NS_ENUM(NSInteger, LWDataType) {
     // 首页
     DataTypeHome = 0,
     // 详细
-    DataTypeDetail
+    DataTypeDetail,
+    
+    // 数据
+    DataTypeDataSource
     
 };
 

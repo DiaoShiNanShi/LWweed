@@ -19,6 +19,11 @@
     [self.contentView addSubview:self.bigImage];
 }
 
+- (void)_sizeToFit
+{
+    
+}
+
 // 赋值
 - (void) Valuation
 {
@@ -41,6 +46,7 @@
     _model = model;
     [self addSubviews];
     [self Valuation];
+    [self _sizeToFit];
     [self autoLayout];
 }
 

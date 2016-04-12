@@ -10,18 +10,27 @@
 #import "LWHomeDataSourceResponseModel.h"
 
 
+
+#import "LWBaseDataSourceViewCell.h"
+#import "LWHomeDataSourcePictureTableViewCell.h"
+#import "LWHomeDataSourceTextTableViewCell.h"
+#import "LWHomeDataSourceNavigationView.h"
+
 @interface LWHomeDetailDataSourceViewController()
 <SDCycleScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 
+@property (nonatomic, strong) LWHomeDataSourceNavigationView *navigationBarView;
+
 #pragma mark - Member
+@property (nonatomic, strong) UIScrollView *outLayerScrollView;
+
 // 头部滚动视图
 @property (nonatomic, strong) SDCycleScrollView *titleScrollView;
 
-@property (nonatomic, strong) UILabel *probablyInformationViewTitleLabel;
-
 // 中上部分 大概信息  高度需要计算  -- title文本长度不一
 @property (nonatomic, strong) UIView *probablyInformationView;
+@property (nonatomic, strong) UILabel *probablyInformationViewTitleLabel;
 
 // 价格信息 包括聚会  和 价格
 @property (nonatomic, strong) UIView *probablyInformationViewPriceView;
@@ -73,28 +82,58 @@
  */
 - (void) sizeToFit;
 
-
 /**
  *  自动布局
  */
 - (void) autoLayout;
 
+/**
+ *  计算文字的高度
+ *
+ *  @param text 需要计算的文字
+ *
+ *  @return 返回的高度
+ */
+- (CGFloat) computeText:(NSString *)text;
 @end
 
 @implementation LWHomeDetailDataSourceViewController
 
+- (void)viewDidLoad
+{
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
+    
+    
+    [super viewDidLoad];
+    // 注册CELL
+    
+    [self.contenDataTableView registerClass:[LWHomeDataSourcePictureTableViewCell class] forCellReuseIdentifier:kLWHomeDataSourcePictureTableViewCell];
+    [self.contenDataTableView registerClass:[LWHomeDataSourceTextTableViewCell class] forCellReuseIdentifier:kLWHomeDataSourceTextTableViewCell];
+    [self addSubviews];
+    [self voluation];
+    [self sizeToFit];
+    [self autoLayout];
+    
+}
 
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.view bringSubviewToFront:self.navigationBarView];
+}
 
 - (void)addSubviews
 {
-
-    // 滚动视图
-    [self.view addSubview:self.titleScrollView];
     
+    [self.view addSubview:self.navigationBarView];
+    [self.view addSubview:self.outLayerScrollView];
+    // 滚动视图
+    [self.outLayerScrollView addSubview:self.titleScrollView];
     
     // 上部分视图 高度需要运算  根据title 部分 字的数量决定
-    [self.view addSubview:self.probablyInformationView];
+    [self.outLayerScrollView addSubview:self.probablyInformationView];
     // 添加title 部分
     [self.probablyInformationView addSubview:self.probablyInformationViewTitleLabel];
     
@@ -114,53 +153,68 @@
     
     
     // 添加活动详情部分
-    [self.view addSubview:self.aboutDetailView];
+    [self.outLayerScrollView addSubview:self.aboutDetailView];
     [self.aboutDetailView addSubview:self.leftLine];
     [self.aboutDetailView addSubview:self.leftPoint];
     [self.aboutDetailView addSubview:self.centerLabel];
     [self.aboutDetailView addSubview:self.rightPoint];
     [self.aboutDetailView addSubview:self.rightLine];
     
+    // 添加 预知  退订   提示 部分
+    // [self.outLayerScrollView addSubview:self.reservationsView];
+    // [self.outLayerScrollView addSubview:self.unsubscribeView];
+    // [self.outLayerScrollView addSubview:self.promptView];
     
     // 添加数据详情部分
-    [self.view addSubview:self.contenDataTableView];
-    
-    // 添加 预知  退订   提示 部分
-    [self.view addSubview:self.reservationsView];
-    [self.view addSubview:self.unsubscribeView];
-    [self.view addSubview:self.promptView];
+    [self.outLayerScrollView addSubview:self.contenDataTableView];
     
 }
 
+// 赋值操作
 - (void)voluation
 {
+    self.titleScrollView.imageURLStringsGroup = self.model.images;
+    self.probablyInformationViewTitleLabel.text = self.model.title;
     
+    [self.probablyInformationViewPriceViewIcon sd_setImageWithURL:[NSURL URLWithString:self.model.category_icon]];
+    self.probablyInformationViewPriceViewTitle.text = self.model.category_name;
+    self.probablyInformationViewPriceViewPrice.text = self.model.price_info;
+    self.probablyInformationViewDateViewLabel.text = self.model.time;
+    [self.probablyInformationViewAddressButton setTitle:self.model.address forState:UIControlStateNormal];
     
 }
 
 - (void)sizeToFit
 {
     [self.probablyInformationViewPriceViewPrice sizeToFit];
+    [self.probablyInformationViewPriceViewTitle sizeToFit];
 }
 
 - (void)autoLayout
 {
     
+    [self.navigationBarView mas_updateConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(@20);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
+    
     // 高：300
     [self.titleScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
        
-        make.width.equalTo(self.view);
+        make.width.equalTo(self.outLayerScrollView);
         make.height.equalTo(@(300));
-        make.left.top.equalTo(self.view);
+        make.left.top.equalTo(self.outLayerScrollView);
         
     }];
     
     // 高不确定  需要运算title的高
     [self.probablyInformationView mas_updateConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(self.view);
+        make.left.equalTo(self.outLayerScrollView);
         make.top.equalTo(self.titleScrollView.mas_bottom);
-        make.width.equalTo(self.view);
+        make.width.equalTo(self.outLayerScrollView);
         make.height.equalTo(@(184 + self.model.titleHeight));
     }];
     
@@ -191,14 +245,16 @@
        
         make.left.equalTo(self.probablyInformationViewPriceViewIcon.mas_right).offset(8);
         make.top.equalTo(@15);
-        make.width.equalTo(@32);
+        // make.width.equalTo(@32);
         make.height.equalTo(@23);
     }];
     
     [self.probablyInformationViewPriceViewPrice mas_updateConstraints:^(MASConstraintMaker *make) {
        
+        
         make.height.equalTo(@24);
-        make.top.left.equalTo(@15);
+        make.top.equalTo(@15);
+        make.right.equalTo(@(-15));
     }];
     
     // 日期部分 高 15 + 44.5
@@ -225,12 +281,14 @@
         make.height.equalTo(@49.5);
     }];
     
+
     // 活动详情部分 高 35
     [self.aboutDetailView mas_updateConstraints:^(MASConstraintMaker *make) {
        
-        make.top.equalTo(self.probablyInformationViewAddressButton.mas_bottom).offset(25);
-        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.probablyInformationView.mas_bottom).offset(25);
         make.height.equalTo(@35);
+        make.leading.equalTo(self.outLayerScrollView.mas_leading);
+        make.width.equalTo(self.outLayerScrollView.mas_width);
         
     }];
     [self.leftLine mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -270,7 +328,19 @@
         make.top.equalTo(@21.75);
         make.width.height.equalTo(self.leftLine);
     }];
+
     
+    // 详细数据部分 table
+    [self.contenDataTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(self.aboutDetailView.mas_bottom).offset(25);
+        
+        make.left.equalTo(self.outLayerScrollView);
+        make.width.equalTo(self.outLayerScrollView);
+        //NSLog(@"table:  %f - %f",self.model.dataPictureHeight,self.model.dataTextHeight);
+        
+        make.height.equalTo(@(self.model.dataPictureHeight + self.model.dataTextHeight));
+    }];
     
     
 }
@@ -279,16 +349,71 @@
 #pragma mark - <UITableViewdelegate,UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.model.descriptionArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    LWBaseDataSourceViewCell *baseCell;
+    
+    if ([(self.model.descriptionArray[indexPath.row][@"type"]) isEqualToString:@"text"]) {
+        
+        baseCell = [tableView dequeueReusableCellWithIdentifier:kLWHomeDataSourceTextTableViewCell forIndexPath:indexPath];
+        baseCell.contentText = self.model.descriptionArray[indexPath.row][@"content"];
+        
+    }else
+    {
+        baseCell = [tableView dequeueReusableCellWithIdentifier:kLWHomeDataSourcePictureTableViewCell forIndexPath:indexPath];
+        [baseCell.picture sd_setImageWithURL:[NSURL URLWithString:self.model.descriptionArray[indexPath.row][@"content"]]];
+    }
+    
+    return baseCell;
+}
+// 返回CELL 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([(self.model.descriptionArray[indexPath.row][@"type"]) isEqualToString:@"text"]) {
+        CGSize totalSize = CGSizeMake(kScreenWidth-15*2, 1000);
+        NSString *text = self.model.descriptionArray[indexPath.row][@"content"];
+        text = [text stringByReplacingOccurrencesOfString:@"\r\n" withString:@"\n"];
+        
+        
+        CGFloat height = [text calcTextSizeWith:[UIFont fontWithName:@"FZLTXHK--GBK1-0" size:13] totalSize:totalSize].height;
+        return ceil(height)+10;
+    }else
+    {
+        return 200;
+    }
 }
 
 
+#pragma mark - Private
+- (CGFloat) computeText:(NSString *)text
+{
+    CGSize totalSize = CGSizeMake(kScreenWidth-15*2, 1000);
+    CGFloat textheight = ceil([text calcTextSizeWith:[UIFont systemFontOfSize:13] totalSize:totalSize].height);
+    
+    return textheight;
+}
+
 #pragma mark - Life Cyc
+
+- (UIScrollView *)outLayerScrollView
+{
+    if(!_outLayerScrollView)
+    {
+        _outLayerScrollView = [[UIScrollView alloc] init];
+        _outLayerScrollView.frame = self.view.bounds;
+        
+        // 滚动高度需要运算
+        // _outLayerScrollView.contentSize = CGSizeMake(kScreenWidth, 300 + 184 + self.model.titleHeight + 35 + self.model.dataTextHeight + self.model.dataPictureHeight);
+        
+        _outLayerScrollView.contentSize = CGSizeMake(kScreenWidth, 300 + 184 + self.model.titleHeight + 35 + self.model.dataTextHeight + self.model.dataPictureHeight + 50);
+    }
+    return _outLayerScrollView;
+}
+
 - (SDCycleScrollView *)titleScrollView
 {
     if(!_titleScrollView)
@@ -306,8 +431,8 @@
     if(!_probablyInformationViewTitleLabel)
     {
         _probablyInformationViewTitleLabel = [[UILabel alloc] init];
-        _probablyInformationViewTitleLabel.font = [UIFont systemFontOfSize:18];
         _probablyInformationViewTitleLabel.numberOfLines = 0;
+        _probablyInformationViewTitleLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:18];
     }
     return _probablyInformationViewTitleLabel;
 }
@@ -344,7 +469,7 @@
     if(!_probablyInformationViewPriceViewTitle)
     {
         _probablyInformationViewPriceViewTitle = [[UILabel alloc] init];
-        _probablyInformationViewPriceViewTitle.font = [UIFont systemFontOfSize:16];
+        _probablyInformationViewPriceViewTitle.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:16];
     }
     return _probablyInformationViewPriceViewTitle;
 }
@@ -354,7 +479,7 @@
     if(!_probablyInformationViewPriceViewPrice)
     {
         _probablyInformationViewPriceViewPrice = [[UILabel alloc] init];
-        _probablyInformationViewPriceViewPrice.font = [UIFont systemFontOfSize:24];
+        _probablyInformationViewPriceViewPrice.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:24];
     }
     return _probablyInformationViewPriceViewPrice;
 }
@@ -372,7 +497,7 @@
     if(!_probablyInformationViewDateViewLabel)
     {
         _probablyInformationViewDateViewLabel = [[UILabel alloc] init];
-        _probablyInformationViewDateViewLabel.font = [UIFont systemFontOfSize:14];
+        _probablyInformationViewDateViewLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:14];
         
     }
     return _probablyInformationViewDateViewLabel;
@@ -383,6 +508,8 @@
     if(!_probablyInformationViewAddressButton)
     {
         _probablyInformationViewAddressButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _probablyInformationViewAddressButton.titleLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:14];
+        
     }
     return _probablyInformationViewAddressButton;
 }
@@ -417,7 +544,10 @@
     if(!_centerLabel)
     {
         _centerLabel = [[UILabel alloc] init];
-        _centerLabel.font = [UIFont systemFontOfSize:16];
+        _centerLabel.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:16];
+        _centerLabel.text = @"活动详情";
+        _centerLabel.textAlignment = NSTextAlignmentCenter;
+        
     }
     return _centerLabel;
 }
@@ -443,6 +573,7 @@
     if(!_contenDataTableView)
     {
         _contenDataTableView = [[UITableView alloc] init];
+        _contenDataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _contenDataTableView.delegate = self;
         _contenDataTableView.dataSource = self;
     }
@@ -473,6 +604,25 @@
         _promptView = [[UIView alloc] init];
     }
     return _promptView;
+}
+
+- (LWHomeDataSourceNavigationView *)navigationBarView{
+    if(!_navigationBarView)
+    {
+        _navigationBarView = [[LWHomeDataSourceNavigationView alloc] init];
+        _navigationBarView.backgroundColor = [UIColor clearColor];
+        
+        // 添加点击事件
+        [_navigationBarView.leftButton addTarget:self action:@selector(comeBlack) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _navigationBarView;
+}
+
+
+- (void) comeBlack
+{
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -2)] animated:YES];
 }
 
 @end

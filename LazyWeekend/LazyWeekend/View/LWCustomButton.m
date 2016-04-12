@@ -29,6 +29,7 @@
 + (instancetype)createCustomButton:(NSString *)labelText withFram:(CGRect)rect
 {
     LWCustomButton *customButton = [self buttonWithType:UIButtonTypeCustom];
+    
     [customButton setTextLabelText:labelText];
     customButton.frame = rect;
     customButton.backgroundColor = [UIColor clearColor];
@@ -44,8 +45,8 @@
     {
         _textlable = [[UILabel alloc] init];
         _textlable.frame = CGRectMake(0, 0, 100, 40);
-        _textlable.font = [UIFont systemFontOfSize:20];
-        _textlable.textColor = [UIColor whiteColor];
+        _textlable.font = [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:20];
+        _textlable.textColor = [UIColor colorWithR:132 g:132 b:132 alpha:1];
         _textlable.textAlignment = NSTextAlignmentLeft;
     }
     return _textlable;
