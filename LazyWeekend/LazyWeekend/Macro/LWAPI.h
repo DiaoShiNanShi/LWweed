@@ -27,4 +27,7 @@
 // 主页详细页面URL
 #define kHomeDataSourceURL                  [NSURL URLWithString:@"http://api.lanrenzhoumo.com/wh/common/leo_detail"]
 
+
+#define kSearchListURL              [NSURL URLWithString:@"http://api.lanrenzhoumo.com/wh/common/leos"]
+
 #endif /* LWAPI_h */

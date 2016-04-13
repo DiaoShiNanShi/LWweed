@@ -11,6 +11,8 @@
 #import "LWHomeDetailRequestModel.h"
 #import "LWHomeResponseModel.h"
 #import "LWHomeEventNavigationView.h"
+#import "LWHomeDetailDataSourceViewController.h"
+#import "LWHomeDetailDataSourceRequestModel.h"
 
 #import "LWHomeRecommendViewCell.h"
 
@@ -124,11 +126,45 @@
     
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LWHomeResponseModel *model = self.dataArray[indexPath.row];
     
     return model.cellHeight;
+}
+
+// 点击进入详细页面
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    LWHomeResponseModel *dataModel = self.dataArray[indexPath.row];
+    LWHomeDetailDataSourceViewController *detailController = [[LWHomeDetailDataSourceViewController alloc] init];
+    LWHomeDetailDataSourceRequestModel *requestModel = [[LWHomeDetailDataSourceRequestModel alloc] init
+                                                        ];
+    
+    requestModel.leo_id = dataModel.leo_id;
+    requestModel.session_id = kSession_id;
+    requestModel.v = @4;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        [[LWNetWorkManager sharNetWorkManager] networkRequestsWithModel:requestModel withDataType:DataTypeDataSource withCompletionHandler:^(id result, NSError *error) {
+            
+            if(error)
+            {
+                return ;
+            }
+            detailController.model = result;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.navigationController pushViewController:detailController animated:YES];
+            });
+            
+        } withRequestWay:kGET];
+    });
+    
 }
 
 

@@ -47,6 +47,9 @@
 		3562BF581CB8F23B000D2D41 /* LWBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */; };
 		3569412E1CBBBE23000EDC86 /* LWHomeEventNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569412D1CBBBE23000EDC86 /* LWHomeEventNavigationView.m */; };
 		356941311CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356941301CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.m */; };
+		357E0B831CBDEC7F004A5E03 /* LWSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 357E0B821CBDEC7F004A5E03 /* LWSearchButton.m */; };
+		357E0B861CBE3B27004A5E03 /* LWSearchRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 357E0B851CBE3B27004A5E03 /* LWSearchRequestModel.m */; };
+		357E0B881CBE3E9F004A5E03 /* categaroy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 357E0B871CBE3E9F004A5E03 /* categaroy.plist */; };
 		35B23EF31CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */; };
 		35B23EF81CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */; };
 		35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */; };
@@ -54,6 +57,8 @@
 		35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */; };
 		35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */; };
 		35E5D45A1CBC9ED200C33971 /* LWSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5D4591CBC9ED100C33971 /* LWSearchView.m */; };
+		35E5D4631CBCD08100C33971 /* LWSearchCollectionContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5D4621CBCD08100C33971 /* LWSearchCollectionContentViewCell.m */; };
+		35E5D4661CBD118F00C33971 /* LWSearchScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5D4651CBD118F00C33971 /* LWSearchScrollView.m */; };
 		D829C04620F94DE58D33F868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C97F4045DB2E6FE7496F988 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +169,11 @@
 		3569412D1CBBBE23000EDC86 /* LWHomeEventNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeEventNavigationView.m; sourceTree = "<group>"; };
 		3569412F1CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDataSourceNavigationView.h; sourceTree = "<group>"; };
 		356941301CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDataSourceNavigationView.m; sourceTree = "<group>"; };
+		357E0B811CBDEC7F004A5E03 /* LWSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchButton.h; sourceTree = "<group>"; };
+		357E0B821CBDEC7F004A5E03 /* LWSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSearchButton.m; sourceTree = "<group>"; };
+		357E0B841CBE3B27004A5E03 /* LWSearchRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchRequestModel.h; sourceTree = "<group>"; };
+		357E0B851CBE3B27004A5E03 /* LWSearchRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSearchRequestModel.m; sourceTree = "<group>"; };
+		357E0B871CBE3E9F004A5E03 /* categaroy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categaroy.plist; sourceTree = "<group>"; };
 		35B23EF11CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailDataSourceRequestModel.h; sourceTree = "<group>"; };
 		35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailDataSourceRequestModel.m; sourceTree = "<group>"; };
 		35B23EF61CBA77D1003ED614 /* LWHomeDataSourceResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDataSourceResponseModel.h; sourceTree = "<group>"; };
@@ -177,6 +187,10 @@
 		35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWApplySettingsViewController.m; sourceTree = "<group>"; };
 		35E5D4581CBC9ED100C33971 /* LWSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchView.h; sourceTree = "<group>"; };
 		35E5D4591CBC9ED100C33971 /* LWSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSearchView.m; sourceTree = "<group>"; };
+		35E5D4611CBCD08100C33971 /* LWSearchCollectionContentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchCollectionContentViewCell.h; sourceTree = "<group>"; };
+		35E5D4621CBCD08100C33971 /* LWSearchCollectionContentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSearchCollectionContentViewCell.m; sourceTree = "<group>"; };
+		35E5D4641CBD118F00C33971 /* LWSearchScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchScrollView.h; sourceTree = "<group>"; };
+		35E5D4651CBD118F00C33971 /* LWSearchScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSearchScrollView.m; sourceTree = "<group>"; };
 		BCA70700E33B159E8728D52F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -379,6 +393,7 @@
 				35282D5D1CB9D8030068F987 /* Reload&&Load */,
 				350B4D5B1CB628C300DD861E /* Assets.xcassets */,
 				3542A20D1CBBA6B50028549A /* Lantinghei_0.ttf */,
+				357E0B871CBE3E9F004A5E03 /* categaroy.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -521,6 +536,8 @@
 				35282DBE1CB9F3B50068F987 /* LWHomeDetailRequestModel.m */,
 				35B23EF11CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.h */,
 				35B23EF21CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m */,
+				357E0B841CBE3B27004A5E03 /* LWSearchRequestModel.h */,
+				357E0B851CBE3B27004A5E03 /* LWSearchRequestModel.m */,
 			);
 			name = HomeRequestModel;
 			sourceTree = "<group>";
@@ -559,6 +576,12 @@
 			children = (
 				35E5D4581CBC9ED100C33971 /* LWSearchView.h */,
 				35E5D4591CBC9ED100C33971 /* LWSearchView.m */,
+				35E5D4611CBCD08100C33971 /* LWSearchCollectionContentViewCell.h */,
+				35E5D4621CBCD08100C33971 /* LWSearchCollectionContentViewCell.m */,
+				35E5D4641CBD118F00C33971 /* LWSearchScrollView.h */,
+				35E5D4651CBD118F00C33971 /* LWSearchScrollView.m */,
+				357E0B811CBDEC7F004A5E03 /* LWSearchButton.h */,
+				357E0B821CBDEC7F004A5E03 /* LWSearchButton.m */,
 			);
 			name = SearchView;
 			sourceTree = "<group>";
@@ -683,6 +706,7 @@
 			files = (
 				350B4D5C1CB628C300DD861E /* Assets.xcassets in Resources */,
 				35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */,
+				357E0B881CBE3E9F004A5E03 /* categaroy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +779,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				357E0B831CBDEC7F004A5E03 /* LWSearchButton.m in Sources */,
 				355AE5611CBB88A200D7D4CE /* LWBaseNavigationView.m in Sources */,
 				35282D6F1CB9D8250068F987 /* MJDIYHeader.m in Sources */,
 				35282D6A1CB9D8250068F987 /* MJChiBaoZiFooter.m in Sources */,
@@ -771,6 +796,7 @@
 				350B4D581CB6272300DD861E /* AppDelegate.m in Sources */,
 				35282D6E1CB9D8250068F987 /* MJDIYBackFooter.m in Sources */,
 				35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */,
+				35E5D4661CBD118F00C33971 /* LWSearchScrollView.m in Sources */,
 				353CBDDF1CB648DE004897A1 /* LWPushAnimation.m in Sources */,
 				35282D6B1CB9D8250068F987 /* MJChiBaoZiFooter2.m in Sources */,
 				35282DBF1CB9F3B50068F987 /* LWHomeDetailRequestModel.m in Sources */,
@@ -786,6 +812,7 @@
 				35282D5C1CB920ED0068F987 /* LWHomeDetailEnevtListViewController.m in Sources */,
 				353CBDD91CB646AB004897A1 /* UINavigationController+TBAddition.m in Sources */,
 				350B4D6A1CB63D9C00DD861E /* LWMenuViewController.m in Sources */,
+				357E0B861CBE3B27004A5E03 /* LWSearchRequestModel.m in Sources */,
 				35B23EF81CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m in Sources */,
 				350B4D601CB62A3500DD861E /* LWBaseViewController.m in Sources */,
 				353CBDF61CB79091004897A1 /* LWBaseModel.m in Sources */,
@@ -795,6 +822,7 @@
 				35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */,
 				353CBDF81CB79091004897A1 /* LWBaseResponseModel.m in Sources */,
 				352317E11CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m in Sources */,
+				35E5D4631CBCD08100C33971 /* LWSearchCollectionContentViewCell.m in Sources */,
 				35B23EF31CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m in Sources */,
 				35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */,
 				350B4D661CB637D600DD861E /* UIColor+TBAddition.m in Sources */,

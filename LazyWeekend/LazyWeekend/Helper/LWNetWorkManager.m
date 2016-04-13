@@ -154,6 +154,11 @@ static LWNetWorkManager *network;
             str = [[kHomeDataSourceURL absoluteString] stringByAppendingString:[model description]];
             break;
         }
+        case DataTypeSearchSource:
+        {
+            str = [[kSearchListURL absoluteString] stringByAppendingString:[model description]];
+            break;
+        }
             
         default:
             break;
@@ -212,6 +217,23 @@ static LWNetWorkManager *network;
                     
                     completionHandler(dataSourceModel,error);
                     break;
+                }
+                case DataTypeSearchSource:
+                {
+                    for (NSDictionary *dic in result[@"result"]) {
+                        
+                        LWHomeResponseModel *responseModel = [[LWHomeResponseModel alloc] initWithObject:dic];
+                        responseModel.item_type = @"leo";
+                        
+                        [modelArr addObject:responseModel];
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        completionHandler(modelArr, error);
+                    });
+                    break;
+                    
                 }
                     
                 default:
