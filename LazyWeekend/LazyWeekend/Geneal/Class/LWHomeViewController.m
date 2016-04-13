@@ -43,7 +43,6 @@ static int leftIndex = 0;
 // NavationBar
 @property (nonatomic, strong) LWHomeNavigationView *navigationView;
 
-
 // 菜单ScrollView
 @property (nonatomic, strong) LWMenuScrollVlew *UIMenuScrollView;
 @property (nonatomic, strong) LWContenScrollView *contenScrollView;
