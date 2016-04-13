@@ -20,6 +20,7 @@
 #import "LWHomeResponseModel.h"
 #import "LWHomeDetailDataSourceRequestModel.h"
 #import "LWHomeDetailDataSourceViewController.h"
+#import "LWSearchRequestModel.h"
 
 
 #import "LWBaseNavigationView.h"
@@ -27,7 +28,7 @@
 
 #import "UIColor+TBAddition.h"
 #import "UINavigationController+TBAddition.h"
-
+#import "LWSearchScrollView.h"
 
 #import "LWMenuViewController.h"
 #import "MJRefresh.h"
@@ -38,13 +39,15 @@ static int leftIndex = 0;
 //static int rightIndex = 0;
 
 @interface LWHomeViewController ()
-<UITableViewDelegate,UITableViewDataSource>
+<UITableViewDelegate,UITableViewDataSource,LWSearchButtonDelegate>
 
 // NavationBar
 @property (nonatomic, strong) LWHomeNavigationView *navigationView;
 
 // 菜单ScrollView
 @property (nonatomic, strong) LWMenuScrollVlew *UIMenuScrollView;
+@property (nonatomic, strong) LWSearchScrollView *rightScrollView;
+
 @property (nonatomic, strong) LWContenScrollView *contenScrollView;
 
 // 主页TableView
@@ -53,22 +56,12 @@ static int leftIndex = 0;
 
 // 主页数据
 @property (nonatomic, strong) NSMutableArray *dataArray;
-
-
-/**
- *  左边按钮点击事件
- */
-- (void) customleftBarButtonItemOnClick;
-
-/**
- *  右边按钮点击事件
- */
-- (void) customRightBarButtonItemOnClick;
-
+// 类型数据
+@property (nonatomic, strong) NSMutableArray *categroyArray;
 /**
  *  打开菜单
  */
-- (void) openOrCloseMenu;
+- (void) openOrCloseMenu:(UIButton *)sender;
 
 /**
  *  添加子视图
@@ -137,9 +130,8 @@ static int leftIndex = 0;
                 
                 
                 // 回到主线程刷新数据
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView reloadData];
-                });
+                [self.tableView reloadData];
+                
                 
             } withRequestWay:kGET];
     });
@@ -148,27 +140,29 @@ static int leftIndex = 0;
 
 #pragma mark - Pravite
 
-- (void)customleftBarButtonItemOnClick
-{
-    [self openOrCloseMenu];
-    
-    NSLog(@"%s",__func__);
-}
-
-- (void)customRightBarButtonItemOnClick
-{
-    NSLog(@"%s",__func__);
-}
-
 // 打开菜单
-- (void)openOrCloseMenu
+- (void)openOrCloseMenu:(UIButton *)sender
 {
+    
+    if (sender.tag == 2 && leftIndex % 2 == 0) {
+        
+        // 右边 下拉 显示
+        self.rightScrollView.hidden = NO;
+        
+    }
+    if (sender.tag == 1 && leftIndex % 2 == 0) {
+        
+        // 右边 下拉
+        self.rightScrollView.hidden = YES;
+        
+    }
     
     [self.contenScrollView layoutIfNeeded];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:0 animations:^{
         
+        
         [self.contenScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-           
+                
             if(leftIndex % 2 == 0)
             {
                 
@@ -179,22 +173,37 @@ static int leftIndex = 0;
                 [self.navigationView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.top.equalTo(@468);
                 }];
-                
+                    
             }else
             {
                 self.contenScrollView.userInteractionEnabled = YES;
                 make.bottom.equalTo(self.view);
-                // self.UIMenuScrollView.alpha = 0;
                 [self.navigationView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.top.equalTo(@20);
                 }];
             }
-            
+                
         }];
         
-        leftIndex ++;
         [self.view layoutIfNeeded];
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        
+        if(leftIndex % 2 == 1)
+        {
+            // 判断 是那边点击的
+            if(sender.tag == 1)
+            {
+                self.rightScrollView.hidden = YES;
+            }else
+            {
+                self.rightScrollView.hidden = NO;
+            }
+            
+        }
+        
+        leftIndex ++;
+    }];
+    
     
 }
 
@@ -243,8 +252,6 @@ static int leftIndex = 0;
     
     if([model.item_type isEqualToString:@"leo"])
     {
-        // 普通
-        NSLog(@"-- 普通页面 %@",model.leo_id);
         
         LWHomeDetailDataSourceViewController *detailController = [[LWHomeDetailDataSourceViewController alloc] init];
         
@@ -285,6 +292,37 @@ static int leftIndex = 0;
     
 }
 
+#pragma mark - LWSearchButtonDelegate - 自定义协议
+- (void)searchButton:(UIButton *)sender
+{
+    NSString *categaroy = self.categroyArray[sender.tag];
+    
+    LWSearchRequestModel *searchRequestModel = [[LWSearchRequestModel alloc] init];
+    searchRequestModel.category = categaroy;
+    searchRequestModel.session_id = kSession_id;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        [[LWNetWorkManager sharNetWorkManager] networkRequestsWithModel:searchRequestModel withDataType:DataTypeSearchSource withCompletionHandler:^(id result, NSError *error) {
+            
+            if(error)
+            {
+                return ;
+            }
+            
+            self.dataArray = result;
+            [self.tableView reloadData];
+            
+            UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            tmpButton.tag = 2;
+            leftIndex = 1;
+            [self openOrCloseMenu:tmpButton];
+            
+        } withRequestWay:kGET];
+    });
+    
+}
+
 
 
 #pragma mark - AutoLayout
@@ -292,6 +330,7 @@ static int leftIndex = 0;
 {
     [self.view addSubview:self.contenScrollView];
     [self.view addSubview:self.UIMenuScrollView];
+    [self.view addSubview:self.rightScrollView];
     [self.view addSubview:self.navigationView];
     [self.contenScrollView addSubview:self.tableView];
     
@@ -322,6 +361,12 @@ static int leftIndex = 0;
         make.width.left.equalTo(self.view);
         make.bottom.equalTo(self.contenScrollView.mas_top);
         
+    }];
+    
+    [self.rightScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.width.left.equalTo(self.view);
+        make.bottom.equalTo(self.contenScrollView.mas_top);
     }];
     
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -387,14 +432,41 @@ static int leftIndex = 0;
     return _tableView;
 }
 
+- (LWSearchScrollView *)rightScrollView
+{
+    if(!_rightScrollView)
+    {
+        _rightScrollView = [[LWSearchScrollView alloc] init];
+        _rightScrollView.backgroundColor = [UIColor blackColor];
+        _rightScrollView.searchButtonDelegate = self;
+        _rightScrollView.hidden = YES;
+    }
+    return _rightScrollView;
+}
+
 - (LWHomeNavigationView *)navigationView
 {
     if(!_navigationView)
     {
         _navigationView = [[LWHomeNavigationView alloc] init];
-        _navigationView.backgroundColor = [UIColor colorWithR:245 g:245 b:245 alpha:0.8];
-        [_navigationView.leftButton addTarget:self action:@selector(openOrCloseMenu) forControlEvents:UIControlEventTouchUpInside];
+        _navigationView.backgroundColor = [UIColor colorWithR:245 g:245 b:245 alpha:0.98];
+        [_navigationView.leftButton addTarget:self action:@selector(openOrCloseMenu:) forControlEvents:UIControlEventTouchUpInside];
+        _navigationView.leftButton.tag = 1;
+        [_navigationView.rightButton addTarget:self action:@selector(openOrCloseMenu:) forControlEvents:UIControlEventTouchUpInside];
+        _navigationView.rightButton.tag = 2;
     }
     return _navigationView;
 }
+- (NSMutableArray *)categroyArray
+{
+    if(!_categroyArray)
+    {
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"categaroy" ofType:@"plist"];
+        
+        _categroyArray = [NSMutableArray arrayWithContentsOfFile:path];
+    }
+    return _categroyArray;
+}
+
 @end

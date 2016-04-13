@@ -8,7 +8,7 @@
         <!--懒人周末-->
         <scene sceneID="zVF-lc-agd">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9wo-8P-UZ8" customClass="LWHomeViewController" sceneMemberID="viewController">
+                <viewController id="9wo-8P-UZ8" customClass="LWHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QwM-Oh-G14"/>
                         <viewControllerLayoutGuide type="bottom" id="hT0-wr-3Y0"/>

@@ -1,0 +1,13 @@
+//
+//  LWSearchCollectionContentViewCell.m
+//  LazyWeekend
+//
+//  Created by tens03 on 16/4/12.
+//  Copyright © 2016年 tens03. All rights reserved.
+//
+
+#import "LWSearchCollectionContentViewCell.h"
+
+@implementation LWSearchCollectionContentViewCell
+
+@end

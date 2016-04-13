@@ -68,7 +68,14 @@
     self.titleLabel.text = self.model.title;
     
     self._contenViewTitleLabel.text = [NSString stringWithFormat:@"%@ 8k . %@",self.model.poi,self.model.category];
-    self._contenViewTimeLabel.text = self.model.time_info;
+    
+    if([self.model.time_info isEqualToString:@""])
+    {
+        self._contenViewTime.hidden = YES;
+    }else
+    {
+        self._contenViewTimeLabel.text = self.model.time_info;
+    }
     self._contenViewCollectionTextLabel.text = self.model.collected_num;
     
     self._contenViewPriceTextLabel.text = [NSString stringWithFormat:@"%@",self.model.price];
