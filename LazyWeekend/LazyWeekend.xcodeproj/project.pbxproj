@@ -44,6 +44,8 @@
 		355AE55A1CBB367D00D7D4CE /* LWHomeDataSourceTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AE5591CBB367D00D7D4CE /* LWHomeDataSourceTextTableViewCell.m */; };
 		355AE55D1CBB3CB000D7D4CE /* LWBaseDataSourceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AE55C1CBB3CB000D7D4CE /* LWBaseDataSourceViewCell.m */; };
 		355AE5611CBB88A200D7D4CE /* LWBaseNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AE5601CBB88A200D7D4CE /* LWBaseNavigationView.m */; };
+		355DBE601CBF67CA0033DCF2 /* LWSpaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355DBE5F1CBF67CA0033DCF2 /* LWSpaceView.xib */; };
+		355DBE631CBF67F40033DCF2 /* LWSpaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355DBE621CBF67F40033DCF2 /* LWSpaceView.m */; };
 		3562BF581CB8F23B000D2D41 /* LWBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */; };
 		3569412E1CBBBE23000EDC86 /* LWHomeEventNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569412D1CBBBE23000EDC86 /* LWHomeEventNavigationView.m */; };
 		356941311CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356941301CBBC8FE000EDC86 /* LWHomeDataSourceNavigationView.m */; };
@@ -54,7 +56,6 @@
 		35B23EF81CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */; };
 		35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */; };
 		35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */; };
-		35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */; };
 		35C55CAC1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */; };
 		35E5D45A1CBC9ED200C33971 /* LWSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5D4591CBC9ED100C33971 /* LWSearchView.m */; };
 		35E5D4631CBCD08100C33971 /* LWSearchCollectionContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5D4621CBCD08100C33971 /* LWSearchCollectionContentViewCell.m */; };
@@ -163,6 +164,9 @@
 		355AE55C1CBB3CB000D7D4CE /* LWBaseDataSourceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseDataSourceViewCell.m; sourceTree = "<group>"; };
 		355AE55F1CBB88A200D7D4CE /* LWBaseNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseNavigationView.h; sourceTree = "<group>"; };
 		355AE5601CBB88A200D7D4CE /* LWBaseNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseNavigationView.m; sourceTree = "<group>"; };
+		355DBE5F1CBF67CA0033DCF2 /* LWSpaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSpaceView.xib; sourceTree = "<group>"; };
+		355DBE611CBF67F40033DCF2 /* LWSpaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSpaceView.h; sourceTree = "<group>"; };
+		355DBE621CBF67F40033DCF2 /* LWSpaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSpaceView.m; sourceTree = "<group>"; };
 		3562BF561CB8F23B000D2D41 /* LWBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseViewCell.h; sourceTree = "<group>"; };
 		3562BF571CB8F23B000D2D41 /* LWBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewCell.m; sourceTree = "<group>"; };
 		3569412C1CBBBE23000EDC86 /* LWHomeEventNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeEventNavigationView.h; sourceTree = "<group>"; };
@@ -181,8 +185,6 @@
 		35B23EF91CBA8263003ED614 /* LWHomeDetailDataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHomeDetailDataSourceViewController.h; sourceTree = "<group>"; };
 		35B23EFA1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHomeDetailDataSourceViewController.m; sourceTree = "<group>"; };
 		35C55CA31CB91B0C00ACA4E0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		35C55CA61CB91B3700ACA4E0 /* LWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLoginViewController.h; sourceTree = "<group>"; };
-		35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLoginViewController.m; sourceTree = "<group>"; };
 		35C55CAA1CB91B5C00ACA4E0 /* LWApplySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWApplySettingsViewController.h; sourceTree = "<group>"; };
 		35C55CAB1CB91B5C00ACA4E0 /* LWApplySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWApplySettingsViewController.m; sourceTree = "<group>"; };
 		35E5D4581CBC9ED100C33971 /* LWSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSearchView.h; sourceTree = "<group>"; };
@@ -344,7 +346,6 @@
 				350B4D671CB63D8200DD861E /* Menu */,
 				350B4D5D1CB62A0900DD861E /* Home */,
 				35C55CA91CB91B4000ACA4E0 /* ApplySetting */,
-				35C55CA51CB91B2700ACA4E0 /* Login */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -401,6 +402,7 @@
 		350B4D571CB6272300DD861E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				355DBE5E1CBF678E0033DCF2 /* Space */,
 				35E5D4571CBC9E9100C33971 /* SearchView */,
 				355AE55E1CBB885E00D7D4CE /* BaseNavigationView */,
 				353CBE051CB7A3D0004897A1 /* HomeTableViewCell */,
@@ -527,6 +529,16 @@
 			name = BaseNavigationView;
 			sourceTree = "<group>";
 		};
+		355DBE5E1CBF678E0033DCF2 /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				355DBE5F1CBF67CA0033DCF2 /* LWSpaceView.xib */,
+				355DBE611CBF67F40033DCF2 /* LWSpaceView.h */,
+				355DBE621CBF67F40033DCF2 /* LWSpaceView.m */,
+			);
+			name = Space;
+			sourceTree = "<group>";
+		};
 		35B23EF41CBA7750003ED614 /* HomeRequestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,15 +563,6 @@
 				35B23EF71CBA77D1003ED614 /* LWHomeDataSourceResponseModel.m */,
 			);
 			name = HomeResponseModel;
-			sourceTree = "<group>";
-		};
-		35C55CA51CB91B2700ACA4E0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				35C55CA61CB91B3700ACA4E0 /* LWLoginViewController.h */,
-				35C55CA71CB91B3700ACA4E0 /* LWLoginViewController.m */,
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 		35C55CA91CB91B4000ACA4E0 /* ApplySetting */ = {
@@ -706,6 +709,7 @@
 			files = (
 				350B4D5C1CB628C300DD861E /* Assets.xcassets in Resources */,
 				35C55CA41CB91B0C00ACA4E0 /* Main.storyboard in Resources */,
+				355DBE601CBF67CA0033DCF2 /* LWSpaceView.xib in Resources */,
 				357E0B881CBE3E9F004A5E03 /* categaroy.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,6 +801,7 @@
 				35282D6E1CB9D8250068F987 /* MJDIYBackFooter.m in Sources */,
 				35B23EFB1CBA8263003ED614 /* LWHomeDetailDataSourceViewController.m in Sources */,
 				35E5D4661CBD118F00C33971 /* LWSearchScrollView.m in Sources */,
+				355DBE631CBF67F40033DCF2 /* LWSpaceView.m in Sources */,
 				353CBDDF1CB648DE004897A1 /* LWPushAnimation.m in Sources */,
 				35282D6B1CB9D8250068F987 /* MJChiBaoZiFooter2.m in Sources */,
 				35282DBF1CB9F3B50068F987 /* LWHomeDetailRequestModel.m in Sources */,
@@ -824,7 +829,6 @@
 				352317E11CB80A20008354B9 /* LWHomeFeaturedTableViewCell.m in Sources */,
 				35E5D4631CBCD08100C33971 /* LWSearchCollectionContentViewCell.m in Sources */,
 				35B23EF31CBA76FA003ED614 /* LWHomeDetailDataSourceRequestModel.m in Sources */,
-				35C55CA81CB91B3700ACA4E0 /* LWLoginViewController.m in Sources */,
 				350B4D661CB637D600DD861E /* UIColor+TBAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
